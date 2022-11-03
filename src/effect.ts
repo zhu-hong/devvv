@@ -1,6 +1,6 @@
 let currentEffect: Function | null = null
 
-function createSignal<T>(value: T) {
+function createSignal<T>(value: T): [() => T, (val: T) => void] {
   const effects: Set<Function> = new Set()
 
   function read(): T {
